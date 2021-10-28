@@ -1,6 +1,6 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
-from settings.environments import FB_PRIVATE_KEY_DEV, FB_PRIVATE_KEY_ID_DEV
+from settings.environments import FB_CLIENT_EMAIL_DEV, FB_PRIVATE_KEY_DEV, FB_PRIVATE_KEY_ID_DEV
 import json
 import codecs
 
@@ -20,4 +20,5 @@ class DBConnection:
         fileJSON = json.loads(file.read())
         fileJSON["private_key"] = codecs.decode(FB_PRIVATE_KEY_DEV, "unicode_escape")
         fileJSON["private_key_id"] = FB_PRIVATE_KEY_ID_DEV
+        fileJSON["client_email"] = FB_CLIENT_EMAIL_DEV
         return fileJSON
