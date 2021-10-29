@@ -34,3 +34,12 @@ class Date(DBConnection):
             return {
                 'status': False,
             }
+
+    def deleteOne(self, id: str) -> bool:
+        try:
+            self.__datesCollection.document(id).delete()
+            print('Date was declined successfully')
+            return True
+        except:
+            print('Something went wrong with request to the server')
+            return False
