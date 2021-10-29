@@ -1,4 +1,6 @@
 from ...data.dbConnection import DBConnection
+from google.cloud.firestore_v1.collection import CollectionReference
+from google.cloud.firestore_v1.document import DocumentReference
 
 
 class Date(DBConnection):
@@ -6,12 +8,29 @@ class Date(DBConnection):
 
     def __init__(self) -> None:
         super().__init__()
+        self.__datesCollection: CollectionReference = self.getDBInstance(
+        ).collection(self.__collection)
 
-    def createOne(self, data):
+    def createOne(self, data) -> bool:
         try:
-            self.getDBInstance().collection(self.__collection).add(data)
+            self.__datesCollection.add(data)
             print('Date was created successfully')
             return True
         except:
             print('Something went wrong with request to the server')
             return False
+
+    def searchAll(self):
+        try:
+            docs: list[DocumentReference] = self.__datesCollection.get()
+
+            print('Dates was gotten successfully')
+            return {
+                'status': True,
+                'dates': docs,
+            }
+        except:
+            print('Something went wrong with request to the server')
+            return {
+                'status': False,
+            }

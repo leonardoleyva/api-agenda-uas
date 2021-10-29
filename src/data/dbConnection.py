@@ -1,5 +1,6 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
+from google.cloud.firestore_v1.base_client import BaseClient
 from ..settings.environments import FB_CLIENT_EMAIL_DEV, FB_PRIVATE_KEY_DEV, FB_PRIVATE_KEY_ID_DEV
 import json
 import codecs
@@ -12,9 +13,9 @@ class DBConnection:
         if not firebase_admin._apps:
             firebase_admin.initialize_app(cred)
 
-        self.__db = firestore.client()
+        self.__db: BaseClient = firestore.client()
 
-    def getDBInstance(self):
+    def getDBInstance(self) -> BaseClient:
         return self.__db
 
     def __getServiceAccountJSON(self):

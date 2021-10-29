@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from src.modules.dates.searchDates import searchDates
 from src.modules.dates.createDate import createDate
 
 app = Flask(__name__)
@@ -13,6 +14,12 @@ def index():
 def createNewDate():
     body = request.json
     response = createDate(body)
+    return jsonify(response)
+
+
+@app.route('/search-dates', methods=['POST'])
+def getAllDates():
+    response = searchDates()
     return jsonify(response)
 
 
