@@ -43,3 +43,12 @@ class Date(DBConnection):
         except:
             print('Something went wrong with request to the server')
             return False
+
+    def acceptOne(self, id: str, timeForDate: str) -> bool:
+        try:
+            self.__datesCollection.document(id).update({ 'status': 'accepted', 'timeForDate': timeForDate })
+            print('Date was accepted successfully')
+            return True
+        except:
+            print('Something went wrong with request to the server')
+            return False

@@ -3,7 +3,7 @@ from ..response import handleResponse
 
 
 def createDate(body):
-    reqStatus = Date().createOne({ **body, 'status': 'pending' })
+    reqStatus = Date().createOne({ **body, 'status': 'pending', 'timeForDate': '' })
 
     message = "Cita creada exitosamente" if reqStatus == True else "No se pudo crear la cita, inténtelo más tarde"
 
