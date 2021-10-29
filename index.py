@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from src.modules.dates.declineDate import declineDate
 from src.modules.dates.searchDates import searchDates
 from src.modules.dates.createDate import createDate
 
@@ -22,5 +23,11 @@ def getAllDates():
     response = searchDates()
     return jsonify(response)
 
+
+@app.route('/decline-date', methods=['POST'])
+def declineOneDate():
+    body = request.json
+    response = declineDate(body)
+    return jsonify(response)
 
 app.run()
