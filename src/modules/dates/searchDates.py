@@ -2,6 +2,7 @@ from .date import Date
 from ..response import handleResponse
 from datetime import datetime
 
+
 def searchDates():
     req = Date().searchAll()
 
