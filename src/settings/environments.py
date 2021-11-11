@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-FB_PRIVATE_KEY_DEV = os.getenv('FB_PRIVATE_KEY_DEV')
-FB_PRIVATE_KEY_ID_DEV = os.getenv('FB_PRIVATE_KEY_ID_DEV')
-FB_CLIENT_EMAIL_DEV = os.getenv('FB_CLIENT_EMAIL_DEV')
+FB_PRIVATE_KEY = os.getenv('FB_PRIVATE_KEY')
+FB_PRIVATE_KEY_ID = os.getenv('FB_PRIVATE_KEY_ID')
+FB_CLIENT_EMAIL = os.getenv('FB_CLIENT_EMAIL')
+APP_WRAPPER_API_KEY = os.getenv('APP_WRAPPER_API_KEY')

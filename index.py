@@ -1,4 +1,8 @@
 from flask import Flask, request, jsonify
+from src.modules.auth.signin import signIn
+from src.modules.auth.signup import signUp
+
+from src.modules.auth.auth import Auth
 from src.modules.dates.acceptDate import acceptDate
 from src.modules.dates.declineDate import declineDate
 from src.modules.dates.searchDates import searchDates
@@ -39,4 +43,19 @@ def confirmDate():
     return jsonify(response)
 
 
-app.run()
+@app.route('/sign-up', methods=['POST'])
+def signup():
+    body = request.json
+    response = signUp(body)
+    return jsonify(response)
+
+
+@app.route('/sign-in', methods=['POST'])
+def login():
+    body = request.json
+    response = signIn(body)
+    return jsonify(response)
+
+
+if __name__ == '__main__':
+    app.run()
