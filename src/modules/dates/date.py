@@ -33,7 +33,6 @@ class Date(DBConnection):
             }
         except:
             print('Something went wrong with request to the server')
-            print(FB_PRIVATE_KEY_ID)
             return {
                 'status': False,
                 'dates': [],
