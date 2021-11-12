@@ -54,7 +54,7 @@ class Date(DBConnection):
             email = date['email']
             firstName = date['firstName']
             lastName = date['lastName']
-            subject = 'Confirmación de cita'
+            subject = 'Servicio Social (Vicerrectoria) - Confirmación de cita'
 
             message = f'Por este medio se le comunica a {firstName} {lastName} que su solicitud de cita fue confirmada para la hora -> {timeForDate}'
 
