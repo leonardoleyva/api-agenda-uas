@@ -13,7 +13,7 @@ Click==7.0
 colorama==0.4.3
 coremltools==4.0b3
 cryptography==2.8
-dbus-python==1.2.16
+# dbus-python==1.2.16
 decorator==5.1.0
 Deprecated==1.2.13
 distro==1.4.0
