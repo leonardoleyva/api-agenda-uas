@@ -1,5 +1,4 @@
 absl-py==1.0.0
-apturl==0.5.2
 astunparse==1.6.3
 attr==0.3.1
 attrs==21.2.0
