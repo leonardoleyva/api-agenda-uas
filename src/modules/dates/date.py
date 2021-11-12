@@ -1,3 +1,4 @@
+from ...settings.environments import FB_PRIVATE_KEY_ID
 from ..SMTP.smtp import SMTP
 from ...data.dbConnection import DBConnection
 from google.cloud.firestore_v1.collection import CollectionReference
@@ -32,6 +33,7 @@ class Date(DBConnection):
             }
         except:
             print('Something went wrong with request to the server')
+            print(FB_PRIVATE_KEY_ID)
             return {
                 'status': False,
                 'dates': [],
