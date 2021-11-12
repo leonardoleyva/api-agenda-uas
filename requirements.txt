@@ -17,7 +17,6 @@ dbus-python==1.2.16
 decorator==5.1.0
 Deprecated==1.2.13
 distro==1.4.0
-distro-info===0.23ubuntu1
 duplicity==0.8.12.0
 entrypoints==0.3
 fasteners==0.14.1
