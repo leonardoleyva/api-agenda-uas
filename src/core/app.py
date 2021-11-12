@@ -15,9 +15,9 @@ class App:
     def __getServiceAccountJSON(self):
         file = open('serviceAccountKey.json', 'r')
         fileJSON = json.loads(file.read())
-        # fileJSON["private_key"] = codecs.decode(
-        #     FB_PRIVATE_KEY, "unicode_escape")
-        fileJSON["private_key"] = FB_PRIVATE_KEY
+        fileJSON["private_key"] = codecs.decode(
+            FB_PRIVATE_KEY, "unicode_escape")
+        # fileJSON["private_key"] = FB_PRIVATE_KEY
         fileJSON["private_key_id"] = FB_PRIVATE_KEY_ID
         fileJSON["client_email"] = FB_CLIENT_EMAIL
         return fileJSON
