@@ -1,3 +1,4 @@
+from ..SMTP.smtp import SMTP
 from ...data.dbConnection import DBConnection
 from google.cloud.firestore_v1.collection import CollectionReference
 from google.cloud.firestore_v1.document import DocumentReference
@@ -46,7 +47,19 @@ class Date(DBConnection):
 
     def acceptOne(self, id: str, timeForDate: str) -> bool:
         try:
-            self.__datesCollection.document(id).update({ 'status': 'accepted', 'timeForDate': timeForDate })
+            self.__datesCollection.document(id).update(
+                {'status': 'accepted', 'timeForDate': timeForDate})
+
+            date = self.__datesCollection.document(id).get().to_dict()
+            email = date['email']
+            firstName = date['firstName']
+            lastName = date['lastName']
+            subject = 'Servicio Social (Vicerrectoria) - Confirmación de cita'
+
+            message = f'Por este medio se le comunica a {firstName} {lastName} que su solicitud de cita fue confirmada para la hora -> {timeForDate}'
+
+            SMTP.sendMail(email, subject, message)
+
             print('Date was accepted successfully')
             return True
         except:
