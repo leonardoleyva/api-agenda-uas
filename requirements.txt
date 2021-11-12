@@ -120,7 +120,6 @@ testresources==2.0.1
 toml==0.10.2
 tqdm==4.62.3
 typing-extensions==3.10.0.2
-ufw==0.36
 unattended-upgrades==0.1
 uritemplate==4.1.1
 urllib3==1.25.8
