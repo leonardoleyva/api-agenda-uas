@@ -1,1 +1,1 @@
-web: gunicorn index:api-agenda-uas
+web: gunicorn index:app
