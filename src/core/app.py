@@ -20,7 +20,7 @@ class App:
         fileJSON["client_email"] = FB_CLIENT_EMAIL
         return fileJSON
 
-    def __string_escape(s, encoding='utf-8'):
+    def __string_escape(s: str, encoding='utf-8'):
         return (s.encode('latin1')         # To bytes, required by 'unicode-escape'
                 # Perform the actual octal-escaping decode
                 .decode('unicode-escape')
