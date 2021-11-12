@@ -119,7 +119,6 @@ termcolor==1.1.0
 testresources==2.0.1
 toml==0.10.2
 tqdm==4.62.3
-turicreate==6.4.1
 typing-extensions==3.10.0.2
 ubuntu-advantage-tools==27.3
 ubuntu-drivers-common==0.0.0
