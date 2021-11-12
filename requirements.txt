@@ -15,7 +15,6 @@ coremltools==4.0b3
 cryptography==2.8
 dbus-python==1.2.16
 decorator==5.1.0
-defer==1.0.6
 Deprecated==1.2.13
 distro==1.4.0
 distro-info===0.23ubuntu1
