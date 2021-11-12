@@ -15,14 +15,9 @@ class App:
     def __getServiceAccountJSON(self):
         file = open('serviceAccountKey.json', 'r')
         fileJSON = json.loads(file.read())
-        fileJSON["private_key"] = self.__string_escape(FB_PRIVATE_KEY)
+        # fileJSON["private_key"] = codecs.decode(
+        #     FB_PRIVATE_KEY, "unicode_escape")
+        fileJSON["private_key"] = FB_PRIVATE_KEY
         fileJSON["private_key_id"] = FB_PRIVATE_KEY_ID
         fileJSON["client_email"] = FB_CLIENT_EMAIL
         return fileJSON
-
-    def __string_escape(s: str, encoding='utf-8'):
-        return (s.encode('latin1')         # To bytes, required by 'unicode-escape'
-                # Perform the actual octal-escaping decode
-                .decode('unicode-escape')
-                .encode('latin1')         # 1:1 mapping back to bytes
-                .decode(encoding))        # Decode original encoding
