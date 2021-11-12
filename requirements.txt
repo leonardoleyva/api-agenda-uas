@@ -120,7 +120,6 @@ testresources==2.0.1
 toml==0.10.2
 tqdm==4.62.3
 typing-extensions==3.10.0.2
-ubuntu-advantage-tools==27.3
 ubuntu-drivers-common==0.0.0
 ufw==0.36
 unattended-upgrades==0.1
