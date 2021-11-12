@@ -34,6 +34,7 @@ class Date(DBConnection):
             print('Something went wrong with request to the server')
             return {
                 'status': False,
+                'dates': [],
             }
 
     def deleteOne(self, id: str) -> bool:
