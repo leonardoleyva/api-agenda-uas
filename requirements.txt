@@ -84,6 +84,7 @@ paramiko==2.6.0
 pbr==5.7.0
 pexpect==4.6.0
 Pillow==7.0.0
+pip-chill==1.0.1
 prettytable==0.7.2
 proto-plus==1.19.6
 protobuf==3.19.0
