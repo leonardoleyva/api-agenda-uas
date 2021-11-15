@@ -2,8 +2,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
 
-from .template import EMAIL_TEMPLATE
-
 from ...settings.environments import SMTP_SERVER_CRED_PASSWORD, SMTP_SERVER_CRED_EMAIL
 
 
@@ -16,7 +14,7 @@ class SMTP:
         msg['To'] = to
         msg['Subject'] = subject
         # add in the message body
-        msg.attach(MIMEText(EMAIL_TEMPLATE, 'html'))
+        msg.attach(MIMEText(message, 'html'))
 
         # create server
         server = smtplib.SMTP('smtp.gmail.com: 587')
