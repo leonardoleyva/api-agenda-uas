@@ -1,8 +1,8 @@
-from ...settings.environments import FB_PRIVATE_KEY_ID
-from ..SMTP.smtp import SMTP
-from ...data.dbConnection import DBConnection
 from google.cloud.firestore_v1.collection import CollectionReference
 from google.cloud.firestore_v1.document import DocumentReference
+from ..SMTP.smtp import SMTP
+from ..SMTP.template import getEmailTemplate
+from ...data.dbConnection import DBConnection
 
 
 class Date(DBConnection):
@@ -58,7 +58,7 @@ class Date(DBConnection):
             lastName = date['lastName']
             subject = 'Servicio Social (Vicerrectoria) - Confirmación de cita'
 
-            message = f'Por este medio se le comunica a {firstName} {lastName} que su solicitud de cita fue confirmada para la hora -> {timeForDate}'
+            message = getEmailTemplate(f'{firstName} {lastName}', timeForDate)
 
             SMTP.sendMail(email, subject, message)
 

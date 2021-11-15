@@ -95,17 +95,22 @@ EMAIL_TEMPLATE = """
       <div class="main-content">
         <h1 class="title">Vicerrectoría</h1>
 
-        <p>Saludos <span>Leonardo Leyva</span>.</p>
+        <p>Saludos <span>[To]</span>.</p>
         <p>
           Por este medio se le comunica que su solicitud fue revisada por el
           coordinador responsable, el cual ha aceptado su cita.
         </p>
         <p>
           Se le espera en las oficinas del departamento de Servicio Social
-          (Vicerrectoría) a la hora seleccionada: <span>11:30</span>
+          (Vicerrectoría) a la hora seleccionada: <span>[timeForDate]</span>
         </p>
       </div>
     </main>
   </body>
 </html>
 """
+
+def getEmailTemplate(to: str, timeForDate: str) -> str:
+  firstStep = EMAIL_TEMPLATE.replace('[To]', to)
+  secondStep = firstStep.replace('[timeForDate]', timeForDate)
+  return secondStep
