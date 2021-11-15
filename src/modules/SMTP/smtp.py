@@ -2,22 +2,25 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
 
+from .template import EMAIL_TEMPLATE
+
 from ...settings.environments import SMTP_SERVER_CRED_PASSWORD, SMTP_SERVER_CRED_EMAIL
 
 
 class SMTP:
     def sendMail(to: str, subject: str, message: str):
         # message object instance
-        msg = MIMEMultipart()
+        msg = MIMEMultipart('alternative')
         # setup the parameters of the message
         msg['From'] = SMTP_SERVER_CRED_EMAIL
         msg['To'] = to
         msg['Subject'] = subject
         # add in the message body
-        msg.attach(MIMEText(message, 'plain'))
+        msg.attach(MIMEText(EMAIL_TEMPLATE, 'html'))
 
         # create server
         server = smtplib.SMTP('smtp.gmail.com: 587')
+        server.ehlo()
         server.starttls()
 
         # login credentials for sending the mail
